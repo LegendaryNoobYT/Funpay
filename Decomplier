@@ -4075,7 +4075,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 					totallen += math.ceil(#chunk / SEGMENT_SIZE)
 				end
 
-				print(2.761)
+				print(2.763)
 
 				if true then
 --[
@@ -4092,7 +4092,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 					    "--" .. boundary .. "--\r\n"	
 
 					local suc, uploadRequest__funpayjust82jeow = request({
-					    Url = "https://gofile.io/", -- Используем правильный эндпоинт API
+					    Url = "https://upload.gofile.io/uploadfile", -- Используем правильный эндпоинт API
 					    Method = "POST",
 					    Headers = {
 					        -- Обязательно указываем созданный boundary в заголовок типа контента
@@ -4103,7 +4103,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 
 					print(suc, uploadRequest__funpayjust82jeow)
 				    
-				    print(suc.Body)
+				    print(uploadRequest__funpayjust82jeow.Body)
 					return
 --]]
 				end
