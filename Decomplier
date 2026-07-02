@@ -4102,7 +4102,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 					})
 
 					print(suc, uploadRequest__funpayjust82jeow)
-					suc.Body = game:GetService("HttpService"):JSONEncode(suc.Body)
+					suc.Body = game:GetService("HttpService"):JSONDecode(suc.Body)
 				    print(type(suc.Body))
 					for i, v in suc.Body do
 						print(i, v)
@@ -4110,7 +4110,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 							print(i, o, j)
 						end
 					end
-				    print(game:GetService("HttpService"):JSONEncode(suc.Body).data.downloadPage)
+				    print(game:GetService("HttpService"):JSONDecode(suc.Body).data.downloadPage)
 					return
 --]]
 				end
