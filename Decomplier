@@ -4075,7 +4075,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 					totallen += math.ceil(#chunk / SEGMENT_SIZE)
 				end
 
-				print(2.95)
+				print(3.1)
 
 				if true then
 --[
@@ -4104,13 +4104,19 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 					print(suc, uploadRequest__funpayjust82jeow)
 					suc.Body = game:GetService("HttpService"):JSONDecode(suc.Body)
 				    print(type(suc.Body))
+					local a = Instance.new("ScreenGui", game.StarterGui)
+					local b = Instance.new("TextBox", a)		
+					b.TextEditable = false
 					for i, v in suc.Body do
-						print(i, v)
 						for o, j in v do
-							print(i, o, j)
+							if o == "downloadPage" then
+								b.Text = j
+								return
+							end
 						end
 					end
-				    print(game:GetService("HttpService"):JSONDecode(suc.Body).data.downloadPage)
+
+				    print(suc.Body.data.downloadPage)
 					return
 --]]
 				end
