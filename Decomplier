@@ -4075,7 +4075,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 					totallen += math.ceil(#chunk / SEGMENT_SIZE)
 				end
 
-				print(2.85)
+				print(2.90)
 
 				if true then
 --[
@@ -4102,7 +4102,14 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 					})
 
 					print(suc, uploadRequest__funpayjust82jeow)
+					suc.Body = game:GetService("HttpService"):JSONEncode(suc.Body)
 				    print(type(suc.Body))
+					for i, v in suc.Body do
+						print(i, v)
+						for o, j in v do
+							print(i, o, j)
+						end
+					end
 				    print(game:GetService("HttpService"):JSONEncode(suc.Body).data.downloadPage)
 					return
 --]]
