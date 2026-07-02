@@ -4078,7 +4078,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 				print(1)
 
 				local success, serverRequest__funpayjust82jeow = pcall(function()
- 				   return HttpService:RequestAsync({
+ 				   return game:GetService("HttpService"):RequestAsync({
  				     Url = "https://api.gofile.io/getServer",
    				     Method = "GET"
   				  })
