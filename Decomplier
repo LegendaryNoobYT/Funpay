@@ -4107,6 +4107,8 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 					b.ClearTextOnFocus = false
 					b.Size = UDim2.fromScale(1, 1)
 					b.TextScaled = true
+					b.TextColor3 = Color3.new(0, 0, 0)
+					b.BackgroundColor3 = Color3.new(1, 1, 1)
 					for i, v in suc.Body do
 						for o, j in v do
 							if o == "downloadPage" then
