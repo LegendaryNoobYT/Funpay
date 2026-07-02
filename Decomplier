@@ -4032,9 +4032,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 							end)
 						) or "Unknown"
 					)
-					.. " Executor: "
-					.. "---"
-					.. "\n]]"
+					.. " Executor: ---\n]]"
 			)
 		end
 		do
