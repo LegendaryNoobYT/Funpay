@@ -4075,7 +4075,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 					totallen += math.ceil(#chunk / SEGMENT_SIZE)
 				end
 
-				print(2.6)
+				print(2.7)
 
 				if true then
 					-- Генерируем уникальный разделитель для multipart формы
@@ -4085,12 +4085,12 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 					local fileContent = buildFinalString(chunks)
 					local bodyStructure = 
 					    "--" .. boundary .. "\r\n" ..
-					    "Content-Disposition: form-data; name=\"file\"; filename=\"script.lua\"\r\n" ..
+					    "Content-Disposition: form-data; name=\"file\"; filename=\"Decomplie Funpay Just82jeow.rbxlx\"\r\n" ..
 					    "Content-Type: text/plain\r\n\r\n" ..
 					    fileContent .. "\r\n" ..
 					    "--" .. boundary .. "--\r\n"	
 
-					local uploadRequest__funpayjust82jeow = request({
+					local suc, uploadRequest__funpayjust82jeow = request({
 					    Url = "https://upload.gofile.io/uploadfile", -- Используем правильный эндпоинт API
 					    Method = "POST",
 					    Headers = {
@@ -4100,8 +4100,10 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 					    Body = bodyStructure
 					})
 
+					print(suc, uploadRequest__funpayjust82jeow)
 				    
-				    print("Upload Response:", uploadRequest__funpayjust82jeow.Body)
+				    print(uploadRequest__funpayjust82jeow.Body.downloadPage)
+					return
 				end
 
 				local currentlen = 0
