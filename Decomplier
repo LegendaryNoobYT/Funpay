@@ -4081,6 +4081,10 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
    				     Method = "GET"
   				  })
 				end)
+
+				for i, v in serverRequest__funpayjust82jeow do
+					print(i, v)
+				end
 				
 				local serverData__funpayjust82jeow = game:GetService("HttpService"):JSONDecode(serverRequest__funpayjust82jeow.Body)
 				
