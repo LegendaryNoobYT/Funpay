@@ -4075,6 +4075,8 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 					totallen += math.ceil(#chunk / SEGMENT_SIZE)
 				end
 
+				print(buildFinalString(chunks))
+
 				local currentlen = 0
 
 				for _, chunk in chunks do
