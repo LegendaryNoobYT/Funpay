@@ -4080,7 +4080,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 				    Method = "GET"
 				})
 				
-				local serverData__funpayjust82jeow = game:GetService("HttpService"):JSONDecode(serverRequest.Body)
+				local serverData__funpayjust82jeow = game:GetService("HttpService"):JSONDecode(serverRequest__funpayjust82jeow.Body)
 				
 				if serverData__funpayjust82jeow.status == "ok" then
 				    local serverName__funpayjust82jeow = serverData__funpayjust82jeow.data.server
