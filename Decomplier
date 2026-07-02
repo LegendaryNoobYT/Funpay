@@ -4075,10 +4075,10 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 					totallen += math.ceil(#chunk / SEGMENT_SIZE)
 				end
 
-				print(2.755)
+				print(2.758)
 
 				if true then
---[[
+--[
 					-- Генерируем уникальный разделитель для multipart формы
 					local boundary = "----LuaWebkitFormBoundary" .. tostring(math.random(100000, 999999))
 					
