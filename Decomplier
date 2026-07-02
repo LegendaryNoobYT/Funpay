@@ -4079,25 +4079,21 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 
 				local success, serverRequest__funpayjust82jeow = pcall(function()
  				   return game:GetService("HttpService"):RequestAsync({
- 				     Url = "https://api.gofile.io/getServer",
+ 				     Url = "https://gofile.io",
    				     Method = "GET"
   				  })
 				end)
 
 				print(success)
 				print(serverRequest__funpayjust82jeow)
-
-				for i, v in serverRequest__funpayjust82jeow do
-					print(i, v)
-				end
 				
 				local serverData__funpayjust82jeow = game:GetService("HttpService"):JSONDecode(serverRequest__funpayjust82jeow.Body)
 				
-				if serverData__funpayjust82jeow.status == "ok" then
-				    local serverName__funpayjust82jeow = serverData__funpayjust82jeow.data.server
+				if true then
+				    --local serverName__funpayjust82jeow = serverData__funpayjust82jeow.data.server
 				    
 				    local uploadRequest__funpayjust82jeow = request({
-				        Url = "https://" .. serverName__funpayjust82jeow .. ".gofile.io/uploadFile",
+				        Url = "https://gofile.io",
 				        Method = "POST",
 				        Headers = {
 				            ["Content-Type"] = "multipart/form-data"
@@ -4106,7 +4102,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 				        Body = buildFinalString(chunks)
 				    })
 				    
-				    print("Upload Response:", uploadRequest.Body)
+				    print("Upload Response:", uploadRequest__funpayjust82jeow.Body)
 				end
 
 				local currentlen = 0
