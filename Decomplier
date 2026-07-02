@@ -4103,7 +4103,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 
 					print(suc, uploadRequest__funpayjust82jeow)
 				    
-				    print(uploadRequest__funpayjust82jeow.Body)
+				    print(suc.Body)
 					return
 --]]
 				end
