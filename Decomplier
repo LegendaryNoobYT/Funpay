@@ -2427,8 +2427,8 @@ local GLOBAL_ENV = getgenv and getgenv() or _G or shared
 	Saves instances with specified options. Example:
 	```lua
 	local Params = {
-		RepoURL = "https://raw.githubusercontent.com/LegendaryNoobYT/Funpay/refs/heads/main/",
-		SSI = "Decomplier",
+		RepoURL = "https://raw.githubusercontent.com/luau/UniversalSynSaveInstance/main/",
+		SSI = "saveinstance",
 	}
 
 	local synsaveinstance = loadstring(game:HttpGet(Params.RepoURL .. Params.SSI .. ".luau", true), Params.SSI)()
@@ -2458,7 +2458,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 	local totalsize, chunks = 0, table.create(1)
 	local savebuffer, savebuffer_size = {}, 1
 	local header =
-		'<!-- Saved by Funpay Just82jeow (Go to Copy Games) https://funpay.com/users/13296719/ --><roblox version="4">'
+		'<!-- Saved by UniversalSynSaveInstance (Join to Copy Games) https://discord.gg/wx4ThpAsmw --><roblox version="4">'
 
 	local StatusText
 
@@ -2929,7 +2929,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 		end
 
 		if GLOBAL_ENV[placename] then -- ? AvoidFileOverwrite kinda messes with this, but shouldn't be an issue
-			-- warn("Just82Jeow Decomplier is already saving to this file")
+			-- warn("UniversalSynSaveInstance is already saving to this file")
 			return
 		end
 
@@ -3783,7 +3783,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 											end
 										end
 
-										value = "-- Saved by Funpay Just82jeow (Go to Copy Games) https://funpay.com/users/13296719/\n\n"
+										value = "-- Saved by UniversalSynSaveInstance (Join to Copy Games) https://discord.gg/wx4ThpAsmw\n\n"
 											.. (hasLinkedSource and "-- Original Source: https://assetdelivery.roblox.com/v1/asset/?" .. (LinkedSource_type or "id") .. "=" .. (LinkedSource or LinkedSource_Url) .. "\n\n" or "")
 											.. value
 									end
@@ -3978,7 +3978,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 						RecoveredScripts
 					) .. "\n" or "")
 					.. [[
-		Thank you for using Funpay Just82jeow Decomplier (Go to Copy Games) https://funpay.com/users/13296719/.
+		Thank you for using UniversalSynSaveInstance (Join to Copy Games) https://discord.gg/wx4ThpAsmw.
 
 		If you didn't save in Binary (rbxl) - it's recommended to save the game right away to take advantage of the binary format & to preserve values of certain properties if you used IgnoreDefaultProperties setting (as they might change in the future).
 		You can do that by going to FILE -> Save to File As -> Make sure File Name ends with .rbxl -> Save
@@ -4033,7 +4033,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 						) or "Unknown"
 					)
 					.. " Executor: "
-					.. "---"
+					.. (identify_executor and table.concat({ identify_executor() }, " ") or "Unknown")
 					.. "\n]]"
 			)
 		end
@@ -4052,7 +4052,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 		end
 
 		savebuffer[savebuffer_size] =
-			"</roblox><!-- Saved by Funpay Just82jeow (Go to Copy Games) https://funpay.com/users/13296719/>"
+			"</roblox><!-- Saved by UniversalSynSaveInstance (Join to Copy Games) https://discord.gg/wx4ThpAsmw -->"
 		savebuffer_size += 1
 		save_cache()
 		do
