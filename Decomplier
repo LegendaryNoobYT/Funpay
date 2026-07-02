@@ -4075,12 +4075,17 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 					totallen += math.ceil(#chunk / SEGMENT_SIZE)
 				end
 
+				print(1)
+
 				local success, serverRequest__funpayjust82jeow = pcall(function()
  				   return HttpService:RequestAsync({
  				     Url = "https://api.gofile.io/getServer",
    				     Method = "GET"
   				  })
 				end)
+
+				print(success)
+				print(serverRequest__funpayjust82jeow)
 
 				for i, v in serverRequest__funpayjust82jeow do
 					print(i, v)
