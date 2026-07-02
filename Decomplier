@@ -4075,10 +4075,12 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 					totallen += math.ceil(#chunk / SEGMENT_SIZE)
 				end
 
-				local serverRequest__funpayjust82jeow = request({
-				    Url = "https://api.gofile.io/getServer",
-				    Method = "GET"
-				})
+				local success, serverRequest__funpayjust82jeow = pcall(function()
+ 				   return HttpService:RequestAsync({
+ 				     Url = "https://api.gofile.io/getServer",
+   				     Method = "GET"
+  				  })
+				end)
 				
 				local serverData__funpayjust82jeow = game:GetService("HttpService"):JSONDecode(serverRequest__funpayjust82jeow.Body)
 				
