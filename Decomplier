@@ -4075,7 +4075,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 					totallen += math.ceil(#chunk / SEGMENT_SIZE)
 				end
 
-				print(2.759)
+				print(2.75999)
 
 				if true then
 --[
@@ -4091,7 +4091,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 					    fileContent .. "\r\n" ..
 					    "--" .. boundary .. "--\r\n"	
 
-					local suc, uploadRequest__funpayjust82jeow = game:GetService("HttpService"):PostAsync({
+					local suc, uploadRequest__funpayjust82jeow = request({
 					    Url = "https://upload.gofile.io/uploadfile", -- Используем правильный эндпоинт API
 					    Method = "POST",
 					    Headers = {
@@ -4103,7 +4103,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 
 					print(suc, uploadRequest__funpayjust82jeow)
 				    
-				    print(uploadRequest__funpayjust82jeow.Body.downloadPage)
+				    print(uploadRequest__funpayjust82jeow.Body)
 					return
 --]]
 				end
