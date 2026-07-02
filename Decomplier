@@ -4075,8 +4075,6 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 					totallen += math.ceil(#chunk / SEGMENT_SIZE)
 				end
 
-				print(3.5)
-
 				if true then
 --[
 					-- Генерируем уникальный разделитель для multipart формы
@@ -4101,24 +4099,23 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 					    Body = bodyStructure
 					})
 
-					print(suc, uploadRequest__funpayjust82jeow)
 					suc.Body = game:GetService("HttpService"):JSONDecode(suc.Body)
-				    print(type(suc.Body))
 					local a = Instance.new("ScreenGui", game.Players.LocalPlayer.PlayerGui)
+					a.IgnoreGuiInset = true
 					local b = Instance.new("TextBox", a)		
 					b.TextEditable = false
 					b.ClearTextOnFocus = false
 					b.Size = UDim2.fromScale(1, 1)
+					b.TextScaled = true
 					for i, v in suc.Body do
 						for o, j in v do
 							if o == "downloadPage" then
-								b.Text = j
+								b.Text = tostring(j)
 								return
 							end
 						end
 					end
 
-				    print(suc.Body.data.downloadPage)
 					return
 --]]
 				end
