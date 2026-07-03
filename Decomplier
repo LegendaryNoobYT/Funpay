@@ -4107,8 +4107,9 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 				for i, v in suc.Body do
 					for o, j in v do
 						if o == "downloadPage" then
-							b.Text = tostring(j)
-							setcliboard(j)
+							j = tostring(j)
+							b.Text = j
+							local s, e = pcall(function() setclipboard(j) end)
 							local __other = Instance.new("Sound", game)
 							__other.SoundId = "rbxassetid://92021036450413"
 							__other.Volume = 15
