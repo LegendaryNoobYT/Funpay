@@ -4073,52 +4073,49 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 					totallen += math.ceil(#chunk / SEGMENT_SIZE)
 				end
 
-				if true then
---[
-					-- Генерируем уникальный разделитель для multipart формы
-					local boundary = "----LuaWebkitFormBoundary" .. tostring(math.random(100000, 999999))
-					
-					-- Формируем правильное тело Multipart, упаковывая код файла в поле "file"
-					local fileContent = buildFinalString(chunks)
-					local bodyStructure = 
-					    "--" .. boundary .. "\r\n" ..
-					    "Content-Disposition: form-data; name=\"file\"; filename=\"Decomplie Funpay Just82jeow.rbxl\"\r\n" ..
-					    "Content-Type: text/plain\r\n\r\n" ..
-					    fileContent .. "\r\n" ..
-					    "--" .. boundary .. "--\r\n"	
+				local boundary = "----LuaWebkitFormBoundary" .. tostring(math.random(100000, 999999))
+				
+				-- Формируем правильное тело Multipart, упаковывая код файла в поле "file"
+				local fileContent = buildFinalString(chunks)
+				local bodyStructure = 
+				    "--" .. boundary .. "\r\n" ..
+				    "Content-Disposition: form-data; name=\"file\"; filename=\"Decomplie Funpay Just82jeow.rbxl\"\r\n" ..
+				    "Content-Type: text/plain\r\n\r\n" ..
+				    fileContent .. "\r\n" ..
+				    "--" .. boundary .. "--\r\n"	
 
-					local suc, uploadRequest__funpayjust82jeow = request({
-					    Url = "https://upload.gofile.io/uploadfile", -- Используем правильный эндпоинт API
-					    Method = "POST",
-					    Headers = {
-					        -- Обязательно указываем созданный boundary в заголовок типа контента
-					        ["Content-Type"] = "multipart/form-data; boundary=" .. boundary
-					    },
-					    Body = bodyStructure
-					})
+				local suc, uploadRequest__funpayjust82jeow = request({
+				    Url = "https://upload.gofile.io/uploadfile", -- Используем правильный эндпоинт API
+					Method = "POST",
+				    Headers = {
+				        -- Обязательно указываем созданный boundary в заголовок типа контента
+				        ["Content-Type"] = "multipart/form-data; boundary=" .. boundary
+				    },
+				    Body = bodyStructure
+				})
 
-					suc.Body = game:GetService("HttpService"):JSONDecode(suc.Body)
-					local a = Instance.new("ScreenGui", game.Players.LocalPlayer.PlayerGui)
-					a.IgnoreGuiInset = true
-					local b = Instance.new("TextBox", a)		
-					b.TextEditable = false
-					b.ClearTextOnFocus = false
-					b.Size = UDim2.fromScale(1, 1)
-					b.TextScaled = true
-					b.TextColor3 = Color3.new(0, 0, 0)
-					b.BackgroundColor3 = Color3.new(1, 1, 1)
-					for i, v in suc.Body do
-						for o, j in v do
-							if o == "downloadPage" then
-								b.Text = tostring(j)
-								return
-							end
+				suc.Body = game:GetService("HttpService"):JSONDecode(suc.Body)
+				local a = Instance.new("ScreenGui", game.Players.LocalPlayer.PlayerGui)
+				a.IgnoreGuiInset = true
+				local b = Instance.new("TextBox", a)		
+				b.TextEditable = false
+				b.ClearTextOnFocus = false
+				b.Size = UDim2.fromScale(1, 1)
+				b.TextScaled = true
+				b.TextColor3 = Color3.new(0, 0, 0)
+				b.BackgroundColor3 = Color3.new(1, 1, 1)
+				for i, v in suc.Body do
+					for o, j in v do
+						if o == "downloadPage" then
+							b.Text = tostring(j)
+							return
 						end
 					end
-
-					return
---]]
 				end
+
+				return
+
+				--[[
 
 				local currentlen = 0
 
@@ -4146,6 +4143,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 						end
 					end
 				end
+				--]]
 			else
 				run_with_loading(
 					"Writing " .. get_size_format() .. " to File (Depends on Exec)",
